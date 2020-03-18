@@ -2,12 +2,12 @@
 
 ### start
 ```
-yarn add @xiaoming/use-local-storage
+yarn add @xiaomingtang/use-local-storage
 ```
 
 ### exports
 ```typescript
-import { useLocalStorage, NumberParam, DateParam, JsonParam } from "@xiaoming/use-local-storage"
+import { useLocalStorage, NumberParam, DateParam, JsonParam } from "@xiaomingtang/use-local-storage"
 
 interface CustomProp {
   success: boolean;
