@@ -1,5 +1,5 @@
 {
-  "name": "use-local-storage-hook",
+  "name": "@xiaoming/use-local-storage",
   "version": "1.0.0",
   "description": "react hook for localStorage",
   "main": "./dist/index.min.js",

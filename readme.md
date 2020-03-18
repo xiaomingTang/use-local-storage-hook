@@ -1,13 +1,13 @@
-# [use-local-storage-hook](https://github.com/xiaomingTang/use-local-storage-hook)
+# [use-local-storage](https://github.com/xiaomingTang/use-local-storage-hook)
 
 ### start
 ```
-yarn add use-local-storage-hook
+yarn add @xiaoming/use-local-storage
 ```
 
 ### exports
 ```typescript
-import { useLocalStorage, NumberParam, DateParam, JsonParam } from "use-local-storage-hook"
+import { useLocalStorage, NumberParam, DateParam, JsonParam } from "@xiaoming/use-local-storage"
 
 interface CustomProp {
   success: boolean;
