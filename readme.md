@@ -1,4 +1,4 @@
-# [use-local-storage](https://github.com/xiaomingTang/use-local-storage-hook)
+# [use-local-storage](https://github.com/xiaomingTang/use-local-storage)
 
 ### start
 ```
