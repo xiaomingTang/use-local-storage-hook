@@ -6,7 +6,16 @@ export interface ParamConfig<T> {
 export declare const StringParam: ParamConfig<string>;
 export declare const NumberParam: ParamConfig<number>;
 export declare const JsonParam: ParamConfig<any>;
+/**
+ * 在localStorage中, Date值以new Date().getTime().toString()格式存储
+ */
 export declare const DateParam: ParamConfig<Date>;
+/**
+ * boolean值由0/1表示
+ * 1为true, 0为false
+ * decode时严格, 不为0/1则判定为false
+ * encode时宽松, if (val) { return "11" }
+ */
 export declare const BooleanParam: ParamConfig<boolean>;
 export declare const localStorageAvailable: boolean;
 export declare const getLocalStorage: (key: string) => string | null;
