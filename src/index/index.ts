@@ -36,10 +36,13 @@ export const JsonParam: ParamConfig<any> = {
   },
 }
 
+/**
+ * 在localStorage中, Date值以new Date().getTime().toString()格式存储
+ */
 export const DateParam: ParamConfig<Date> = {
   decode: (val) => {
     if (val === null) { return null }
-    return new Date(val)
+    return new Date(Number(val))
   },
   encode: (val) => {
     if (val === null) { return null }
@@ -47,23 +50,28 @@ export const DateParam: ParamConfig<Date> = {
   },
 }
 
+/**
+ * boolean值由0/1表示
+ * 1为true, 0为false
+ * decode时严格, 不为0/1则判定为false
+ * encode时宽松, if (val) { return "11" }
+ */
 export const BooleanParam: ParamConfig<boolean> = {
-  decode: (val) => {
+  decode: (val) => { // 严格
     if (val === "1") { return true }
     if (val === "0") { return false }
     return null
   },
-  encode: (val) => {
-    if (val === true) { return "1" }
-    if (val === false) { return "0" }
-    return null
+  encode: (val) => { // 宽松
+    if (val) { return "1" }
+    return "0"
   },
 }
 
 const checkLocalStorageAvailable = () => {
   try {
-    window.localStorage.setItem("__localStorageTest__", "yes")
-    window.localStorage.removeItem("__localStorageTest__")
+    window.localStorage.setItem("__@xiaomingtang/use-local-storage/test__", "yes")
+    window.localStorage.removeItem("__@xiaomingtang/use-local-storage/test__")
     return true
   } catch (err) {
     return false

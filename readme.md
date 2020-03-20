@@ -7,16 +7,31 @@ yarn add @xiaomingtang/use-local-storage
 
 ### exports
 ```typescript
-import { useLocalStorage, NumberParam, DateParam, JsonParam } from "@xiaomingtang/use-local-storage"
+import {
+  useLocalStorage,
+
+  ParamConfig,
+
+  NumberParam,
+  DateParam,
+  JsonParam,
+} from "@xiaomingtang/use-local-storage"
 
 interface CustomProp {
   success: boolean;
+}
+
+const CustomConfig: ParamConfig<CustomProp> = {
+  decode: (str) => decodeToCustomValue(str),
+  encode: (val) => encodeToString(val),
 }
 
 function useTest() {
   const [numberParam, setNumberParam] = useLocalStorage("__number-param__", NumberParam)
   const [dateParam, setDateParam] = useLocalStorage("__date-param__", DateParam)
   const [jsonParam, setJsonParam] = useLocalStorage<CustomProp>("__json-param__", JsonParam)
+  
+  const [customParam, setCustomParam] = useLocalStorage("__custom-param__", CustomConfig)
 
   /* do something */
 }
